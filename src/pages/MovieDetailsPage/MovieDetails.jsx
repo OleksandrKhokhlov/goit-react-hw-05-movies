@@ -39,7 +39,7 @@ const MovieDetails = () => {
     genres,
     vote_average,
   } = movie;
-  const currentGenres = genres.map(genre => genre.name).join(' ');
+  const currentGenres = genres?.map(genre => genre.name).join(' ');
   const yearRelise = release_date.split('-')[0];
   const userScore = Math.round(vote_average * 10);
 
@@ -59,9 +59,18 @@ const MovieDetails = () => {
           </h2>
           <p>User score: {userScore}%</p>
           <h3>Overview</h3>
-          <p>{overview}</p>
+          {overview !== '' ? (
+            <p>{overview}</p>
+          ) : (
+            <div>information not found</div>
+          )}
+
           <h4>Genres</h4>
-          <p> {currentGenres}</p>
+          {currentGenres !== '' ? (
+            <p> {currentGenres}</p>
+          ) : (
+            <div>information not found</div>
+          )}
         </div>
       </MovieDetailsWrap>
       <p>Additional information</p>
