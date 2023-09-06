@@ -1,5 +1,4 @@
 import toast from 'react-hot-toast';
-import Loader from 'react-loaders';
 import { BiArrowBack } from 'react-icons/bi';
 import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
