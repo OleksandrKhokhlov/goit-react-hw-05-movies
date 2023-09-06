@@ -1,4 +1,5 @@
 import toast from 'react-hot-toast';
+import { PacmanLoader } from 'react-spinners';
 import { BiArrowBack } from 'react-icons/bi';
 import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
@@ -77,7 +78,18 @@ const MovieDetails = () => {
         </li>
       </ul>
       <hr />
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <PacmanLoader
+            color="#4d9ded"
+            cssOverride={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+            }}
+          />
+        }
+      >
         <Outlet />
       </Suspense>
     </Conteiner>

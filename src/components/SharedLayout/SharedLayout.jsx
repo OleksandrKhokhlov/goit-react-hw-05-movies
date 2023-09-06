@@ -1,3 +1,4 @@
+import { PacmanLoader } from 'react-spinners';
 
 import { Toaster } from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
@@ -19,7 +20,18 @@ export const SharedLayout = () => {
           </NavList>
         </nav>
       </header>
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <PacmanLoader
+            color="#4d9ded"
+            cssOverride={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+            }}
+          />
+        }
+      >
         <Outlet />
       </Suspense>
       <Toaster />
